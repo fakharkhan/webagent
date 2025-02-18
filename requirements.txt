@@ -1,0 +1,15 @@
+langchain>=0.3.7
+langchain-core>=0.3.15
+langchain-openai
+langchain-community>=0.3.7
+python-dotenv
+openai>=1.6.1
+google-search-results
+urllib3<2.0.0
+setuptools>=68.0.0
+pydantic>=2.9.2
+aiohttp>=3.11.8
+fsspec==2024.2.0
+boto3==1.35.53
+botocore==1.35.53
+s3transfer==0.10.0
