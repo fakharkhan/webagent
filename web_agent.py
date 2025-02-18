@@ -79,16 +79,21 @@ def main():
         # Create the agent
         agent = create_agent()
         
-        # Example questions
-        questions = [
-            "What is the current weather in London?",
-            "Who is the current president of France? What is their height in centimeters?"
-        ]
+        print("Web Search Agent (type 'quit' to exit)")
+        print("=" * 50)
         
-        # Run the agent for each question
-        for question in questions:
+        while True:
+            question = input("\nEnter your question: ").strip()
+            
+            if question.lower() == 'quit':
+                print("Goodbye!")
+                break
+                
+            if not question:
+                print("Please enter a valid question.")
+                continue
+                
             try:
-                print(f"\nQuestion: {question}")
                 print("=" * 50)
                 response = agent.invoke({"input": question})
                 print(f"\nFinal Answer: {response['output']}\n")

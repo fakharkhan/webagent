@@ -1,26 +1,36 @@
 # Web Search AI Agent
 
-This project implements an AI agent using LangChain that can answer questions by searching the web using SerpAPI.
+An intelligent agent built with LangChain that can answer questions by searching the web using SerpAPI and processing results with OpenAI's GPT model.
 
-## Setup
+## Requirements
 
-1. Install dependencies:
+- Python 3.9+
+- OpenAI API key
+- SerpAPI key
+
+## Installation
+
+1. Clone the repository and create a virtual environment:
+```bash
+python -m venv .venv
+source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
+```
+
+2. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-2. Set up API keys:
+## Configuration
+
+Set up your API keys using one of these methods:
+
+### Method 1: Environment Variables
 
 For Unix/Linux/macOS:
 ```bash
 export OPENAI_API_KEY='your-openai-api-key'
 export SERPAPI_API_KEY='your-serpapi-api-key'
-```
-
-For Windows (Command Prompt):
-```cmd
-set OPENAI_API_KEY=your-openai-api-key
-set SERPAPI_API_KEY=your-serpapi-api-key
 ```
 
 For Windows (PowerShell):
@@ -29,16 +39,62 @@ $env:OPENAI_API_KEY='your-openai-api-key'
 $env:SERPAPI_API_KEY='your-serpapi-api-key'
 ```
 
-Alternatively, copy `.env.template` to `.env` and fill in your API keys.
+### Method 2: .env File
 
-3. Run the agent:
+Create a .env file in the project root:
+```
+OPENAI_API_KEY=your-openai-api-key
+SERPAPI_API_KEY=your-serpapi-api-key
+```
+
+## Usage
+
+Run the agent:
 ```bash
 python web_agent.py
 ```
 
+The agent will process two example questions:
+- Current weather in London
+- Information about the French president
+
+Example output:
+```
+Question: What is the current weather in London?
+==================================================
+Thought: I need to search for current weather information in London
+Action: web_search
+Action Input: current weather London
+Observation: [Search results...]
+Final Answer: [Weather details...]
+
+Question: Who is the current president of France? What is their height in centimeters?
+==================================================
+...
+```
+
 ## Features
 
-- Uses latest versions of langchain packages
-- Implements custom SerpAPI tool with proper args schema
-- Shows agent's thought process in verbose mode
-- Example questions included
+- 🔍 Web search capabilities using SerpAPI
+- 🤖 OpenAI GPT-3.5 Turbo integration
+- 📝 Detailed thought process logging
+- ⚡ Efficient error handling
+- 🛠️ Custom tool implementation
+- 🔒 Secure API key management
+
+## Troubleshooting
+
+- Ensure both API keys are properly set
+- Check internet connectivity for web searches
+- Verify Python version compatibility
+- Make sure all dependencies are correctly installed
+
+## Dependencies
+
+Key packages:
+- langchain and related packages
+- openai
+- python-dotenv
+- google-search-results (SerpAPI)
+
+For full list, see `requirements.txt`
